@@ -100,6 +100,17 @@ Tests/AppTests/
   HelloControllerTests.swift
 ```
 
+Use
+---
 
+``` sh
+vapor new PROJECT_NAME --template=marc-medley/004.77_VaporApiWebTemplate
+cd PROJECT_NAME
+vapor update
+```
+
+Set the Xcode active scheme to `Run > My Mac`.
+
+![](README_files/XcodeSchemeSetting.png)
 
 
