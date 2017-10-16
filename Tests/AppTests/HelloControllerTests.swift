@@ -17,14 +17,14 @@ class HelloControllerTests: TestCase {
     /// application in a convenient and safe manner
     /// See RouteTests for an example of a live server test
     let controller = HelloController(TestViewRenderer())
-
+    
     func testIndex() throws {
         let req = Request.makeTest(method: .get)
         try controller.index(req).makeResponse()
             .assertBody(contains: "hello") // path
             .assertBody(contains: "World") // default name
     }
-
+    
     func testShow() throws {
         let req = Request.makeTest(method: .get)
         try controller.show(req, "Foo").makeResponse()
@@ -42,5 +42,5 @@ extension HelloControllerTests {
     static let allTests = [
         ("testIndex", testIndex),
         ("testShow", testShow),
-    ]
+        ]
 }

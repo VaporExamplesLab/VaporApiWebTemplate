@@ -8,21 +8,21 @@ final class HelloController: ResourceRepresentable {
     init(_ view: ViewRenderer) {
         self.view = view
     }
-
+    
     /// GET /hello
     func index(_ req: Request) throws -> ResponseRepresentable {
         return try view.make("hello_web", [
             "name": "World"
-        ], for: req)
+            ], for: req)
     }
-
+    
     /// GET /hello/:string
     func show(_ req: Request, _ string: String) throws -> ResponseRepresentable {
         return try view.make("hello_web", [
             "name": string
-        ], for: req)
+            ], for: req)
     }
-
+    
     /// When making a controller, it is pretty flexible in that it
     /// only expects closures, this is useful for advanced scenarios, but
     /// most of the time, it should look almost identical to this

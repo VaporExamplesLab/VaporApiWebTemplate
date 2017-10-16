@@ -15,20 +15,20 @@ final class Post: Model {
         static let id = "id"
         static let content = "content"
     }
-
+    
     /// Creates a new Post
     init(content: String) {
         self.content = content
     }
-
+    
     // MARK: Fluent Serialization
-
+    
     /// Initializes the Post from the
     /// database row
     init(row: Row) throws {
         content = try row.get(Post.Keys.content)
     }
-
+    
     // Serializes the Post to the database
     func makeRow() throws -> Row {
         var row = Row()
@@ -48,7 +48,7 @@ extension Post: Preparation {
             builder.string(Post.Keys.content)
         }
     }
-
+    
     /// Undoes what was done in `prepare`
     static func revert(_ database: Database) throws {
         try database.delete(self)

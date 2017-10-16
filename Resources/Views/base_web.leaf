@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>#import("title")</title>
-	<link rel="stylesheet" href="/styles/app.css">
+    <title>#import("title")</title>
+    <link rel="stylesheet" href="/styles/app.css">
 </head>
 <body>
 

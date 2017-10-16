@@ -29,7 +29,7 @@ extension Droplet {
         // setup web routes collection
         let routes = Routes(view)
         try self.collection(routes)
-
+        
     }
 }
 
@@ -38,16 +38,16 @@ final class Routes: RouteCollection {
     init(_ view: ViewRenderer) {
         self.view = view
     }
-
+    
     func build(_ builder: RouteBuilder) throws {
         /// GET /
         builder.get { req in
             return try self.view.make("welcome_web")
         }
-
+        
         /// GET /hello_web/...
         builder.resource("hello_web", HelloController(view))
-
+        
         // response to requests to /info domain
         // with a description of the request
         builder.get("info_web") { req in

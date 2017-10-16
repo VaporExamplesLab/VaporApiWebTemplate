@@ -7,7 +7,7 @@ extension Config {
         // (add your own types here)
         // Fluent adds Row.self
         Node.fuzzy = [Row.self, JSON.self, Node.self]
-
+        
         try setupProviders()
         try setupPreparations()
     }

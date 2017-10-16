@@ -17,7 +17,7 @@ class RouteTests: TestCase {
             .assertStatus(is: .ok)
             .assertJSON("hello", equals: "world")
     }
-
+    
     func testInfoApi() throws {
         try drop
             .testResponse(to: .get, at: "info_api")
@@ -60,5 +60,5 @@ extension RouteTests {
         ("testWelcomeWeb", testWelcomeWeb),
         ("testHelloWeb", testHelloWeb),
         ("testInfoWeb", testInfoWeb),
-    ]
+        ]
 }
