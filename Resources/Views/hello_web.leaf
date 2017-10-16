@@ -1,0 +1,8 @@
+#extend("base_web")
+
+#export("title") { Hello, #(name)! }
+
+#export("content") {
+	<h1>Hello, #(name)!</h1>
+}
+
