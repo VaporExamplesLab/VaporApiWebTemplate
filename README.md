@@ -21,27 +21,27 @@ Example routes setup in the baseline template.
 
 **API Fluent**
 
-[http://localhost:8080/hello_api](http://localhost:8080/hello_api)  
+`http://localhost:8080/hello_api`  
 
 ```
 {"hello":"world"}
 ```
 
-[http://localhost:8080/plaintext_api](http://localhost:8080/plaintext_api)
+`http://localhost:8080/plaintext_api`
 
 ```
 Hello, world!
 ```  
 
-[http://localhost:8080/info_api](http://localhost:8080/info_api)  
+`http://localhost:8080/info_api`  
 
 **Web Leaf**
 
-[http://localhost:8080/](http://localhost:8080/)  
+`http://localhost:8080/`  
 
-[http://localhost:8080/info_web](http://localhost:8080/info_web)  
+`http://localhost:8080/info_web`  
 
-[http://localhost:8080/hello_web/Sunshine](http://localhost:8080/hello_web/Sunshine)  
+`http://localhost:8080/hello_web/Sunshine`
 
 ``` html
 <!DOCTYPE html>
