@@ -1,27 +1,19 @@
-// swift-tools-version:4.0
+// swift-tools-version:4.1
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-    name: "VaporApiWebApp",
-    products: [
-        .library(name: "App", targets: ["App"]),
-        .executable(name: "Run", targets: ["Run"])
-    ],
+    name: "VaporApiWebTemplate",
     dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", .upToNextMajor(from: "2.1.0")),
-        .package(url: "https://github.com/vapor/fluent-provider.git", .upToNextMajor(from: "1.2.0")),
-        .package(url: "https://github.com/vapor/leaf-provider.git", .upToNextMajor(from: "1.1.0")),
-    ],
+        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.8"),
+        .package(url: "https://github.com/vapor/fluent-sqlite.git", from: "3.0.0"),
+        .package(url: "https://github.com/vapor/leaf.git", from: "3.0.0-rc"),
+        ],
     targets: [
-        .target(name: "App", dependencies: ["Vapor", "FluentProvider", "LeafProvider"],
-                exclude: [
-                    "Config",
-                    "Public",
-                    "Resources",
-                ]),
+        .target(name: "App", dependencies: ["FluentSQLite", "Vapor", "Leaf"]),
         .target(name: "Run", dependencies: ["App"]),
-        .testTarget(name: "AppTests", dependencies: ["App", "Testing"])
+        .testTarget(name: "AppTests", dependencies: ["App"])
     ]
 )
 

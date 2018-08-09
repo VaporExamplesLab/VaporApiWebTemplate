@@ -1,0 +1,46 @@
+#set("title") { #(keyWindowTitle)  }
+
+#set("content") {
+<main role="main">
+<div class="container">
+  <div class="mx-auto" style="width: 200px;">
+    <img src="/images/it-works.png" class="img-fluid" alt="Responsive image" />
+  </div>
+</div>
+    
+<div class="jumbotron">
+  <div class="container">
+    <h4 class="display-3">Bootstrap + Leaf</h4>
+    <p>This page illustrates a combination of Bootstrap elements, Swift data types, and Leaf Template patterns.</p>
+    <p>Generated: <b>#date(keyEpochTime, "EEE yyyy.MMM.dd @ HH:mm:ss.SSS zzz")</b></p>
+  </div>
+</div>
+
+<div  class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Number Array List</h3>
+      <p><ul>
+        #for(number in keyIntArray) { <li>#(number)</li> }        
+      </ul></p>
+    </div>
+    <div class="col-md-4">
+      <h3>String Array List</h3>
+      <p><ul>
+        #for(string in keyStrArray) { <li>#(string)</li> }
+      </ul></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Wildlife Array List</h3>
+      <p><ul>
+        #for(animal in keyWildlifeArray) { <li>#(animal.name) is a #(animal.species).</li> }
+      </ul></p>
+    </div>
+  </div>
+</div>
+</main>
+}
+
+#embed("bootstrap_base")
+

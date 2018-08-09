@@ -1,49 +1,91 @@
 <p align="center">
     <img src="README_files/AWT.png" width="480" alt="API + Web Template">
     <br>
-    <a href="https://docs.vapor.codes/2.0/getting-started/toolbox/#templates">
-        <img src="http://img.shields.io/badge/read_the-docs-92A8D1.svg" alt="Documentation">
+    <br>
+    <a href="http://docs.vapor.codes/3.0/">
+        <img src="http://img.shields.io/badge/read_the-docs-2196f3.svg" alt="Documentation">
     </a>
     <a href="LICENSE">
         <img src="http://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
     </a>
     <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-4.0-brightgreen.svg" alt="Swift 4.0">
+        <img src="http://img.shields.io/badge/swift-4.1-brightgreen.svg" alt="Swift 4.1">
     </a>
 </p>
 
-API + Web Template was initially created as a hybrid of [vapor/api-template](https://github.com/vapor/api-template) and [vapor/web-template](https://github.com/vapor/web-template).  This API (Fluent) + Web (Leaf) hybrid is currently setup as a starting point that can be used with Swift 4.0 and Xcode 9.
+<a id=toc></a>
+| [Example Routes](#ExampleRoutes) | 
+[Components](#Components) | 
+[Use](#Use) | 
+[Resources](#Resources) |
 
-Example Routes
---------------
+API + Web Template (AWT) is based on a hybrid of [vapor/api-template](https://github.com/vapor/api-template) and [vapor/web-template](https://github.com/vapor/web-template).  This template uses Vapor 3, Swift 4.1 and Xcode 9.
+
+API + Web Template (AWT) includes the following examples:
+
+* api routes which use SQLite (`TextpostApiController`, `Textpost`)
+* web page routes which serve static Public/ html files (`FileMiddleware` enabled)
+* web page routes which use Leaf templating (`LeafWebController`)
+* simple custom `Middleware` (`ExampleMiddleware`)
+* simple custom `Service` (`ExampleService`, `ExampleFortuneService`, `ExampleQuoteService`, `ExampleServiceProvider`)
+* UUID extension for RFC 4122 compliance
+* `XCTest` unit test examples
+
+## Example Routes <a id="ExampleRoutes">[▴](#toc)</a>
 
 Example routes setup in the baseline template.
 
-**API Fluent**
+**Basic**
 
-`http://localhost:8080/hello_api`  
-
-```
-{"hello":"world"}
-```
-
-`http://localhost:8080/plaintext_api`
+`http://localhost:8080/hello`
 
 ```
 Hello, world!
 ```  
 
-`http://localhost:8080/info_api`  
+`http://localhost:8080/hellojson`  
 
-**Web Leaf**
+``` JSON
+{"hello":"world"}
+```
 
-`http://localhost:8080/`  
+`http://localhost:8080/info`  
 
-`http://localhost:8080/info_web`  
+Returns a description of http request.
 
-`http://localhost:8080/hello_web/Sunshine`
+``` http
+GET /api/info HTTP/1.1
+Host: localhost:8080
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+User-Agent: …
+<no body>
+```
 
-``` html
+**Dynamic API (Fluent)**
+
+* `/api/textposts` POST creates one database entry for valid JSON `Textpost`.
+* `/api/textposts` GET returns an array of all available `Textpost`
+* `/api/textposts/uuid` GET returns one specific `Textpost`
+* `/api/textposts` PUT updates an existing `Textpost` or create a new `Textpost`. 
+* `/api/textposts/uuid` PATCH applies partial update modification to specific `Textpost` entry.
+* `/api/textposts/uuid` DELETE removes one specific `Textpost`.
+
+**Static HTML**
+
+* `http://localhost:8080/` redirects to '/index.html'.
+* `http://localhost:8080/index.html` minimal HTML 5.
+
+**Web HTML Templates (Leaf)**
+
+* `http://localhost:8080/leaf` simple leaf example.  
+* `http://localhost:8080/leaf/hello`
+* `http://localhost:8080/leaf/hello/Sunshine` leaf with a `String` parameter.
+
+
+``` markup
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,35 +93,26 @@ Hello, world!
 	<link rel="stylesheet" href="/styles/app.css">
 </head>
 <body>
-
 <h1>Hello, Sunshine!</h1>
 </body>
 </html>
 ```
 
-Template Components
--------------------
+* `http://localhost:8080/leaf/bootstrap` example page with Bootstrap, Swift data objects and Leaf. 
 
-### API Fluent Template
+## Components  <a id="Components">[▴](#toc)</a>
 
-Fluent database components.
+### API Fluent
 
 ```
 Sources/App/
   Controllers/
-    PostController.swift
+    TextpostController.swift
   Models/
-    Post.swift
+    Textpost.swift
 Tests/AppTests/
-  PostControllerTests.swift
+  TextpostControllerTests.swift
 ```
-
-_Config/fluent.json_
-
-``` json
-"driver": "memory"
-```
-
 
 ### Web Leaf Template
 
@@ -88,22 +121,24 @@ Leaf templating components.
 ```
 Sources/App/
   Controllers/
-    HelloController.swift
+    LeafWebController.swift
   Public/
     images/it-works.png
+    scripts/.gitkeep
     styles/app.css
-  Resources/Views/
-    base_web.leaf
-    hello_web.leaf
-    welcome_web.leaf
+  Resources/
+    Views/
+      bootstrap_web.leaf
+      bootstrap_welcome.leaf
+      web_base.leaf
+      web_hello.leaf
 Tests/AppTests/
-  HelloControllerTests.swift
+  LeafWebControllerTests.swift
 ```
 
-Use
----
+## Use <a id="Use">[▴](#toc)</a>
 
-``` sh
+``` bash
 vapor new PROJECT_NAME --template=marc-medley/004.77_VaporApiWebTemplate
 cd PROJECT_NAME
 vapor update
@@ -112,5 +147,10 @@ vapor update
 Set the Xcode active scheme to `Run > My Mac`.
 
 ![](README_files/XcodeSchemeSetting.png)
+
+## Resources <a id="Resources">[▴](#toc)</a>
+
+[Atom: language-leaf ⇗](https://atom.io/packages/language-leaf)  
+[Mac App Store: RESTed - Simple HTTP Requests ⇗](https://itunes.apple.com/us/app/rested-simple-http-requests/id421879749) _…free._
 
 

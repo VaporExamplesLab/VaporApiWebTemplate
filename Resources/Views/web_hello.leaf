@@ -1,0 +1,8 @@
+
+#set("title") { #(keyWindowTitle) }
+
+#set("content") {
+    <h1>Hello, #(keyName)!</h1>
+}
+
+#embed("web_base")
