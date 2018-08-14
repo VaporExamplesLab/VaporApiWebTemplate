@@ -14,17 +14,17 @@
 </p>
 
 <a id=toc></a>
-| [Example Routes](#ExampleRoutes) | 
-[Components](#Components) | 
-[Use](#Use) | 
-[Resources](#Resources) |
+[Example Routes](#ExampleRoutes) • 
+[Components](#Components) • 
+[Use](#Use) • 
+[Resources](#Resources)
 
-API + Web Template (AWT) is based on a hybrid of [vapor/api-template](https://github.com/vapor/api-template) and [vapor/web-template](https://github.com/vapor/web-template).  This template uses Vapor 3, Swift 4.1 and Xcode 9.
+`VaporApiWebTemplate` is an API + Web Template (AWT) hybrid based on [vapor/api-template](https://github.com/vapor/api-template) and [vapor/web-template](https://github.com/vapor/web-template).  `VaporApiWebTemplate` template uses Vapor 3, Swift 4.1 and Xcode 9.
 
-API + Web Template (AWT) includes the following examples:
+`VaporApiWebTemplate` also includes a set of lightweight examples: 
 
 * api routes which use SQLite (`TextpostApiController`, `Textpost`)
-* web page routes which serve static Public/ html files (`FileMiddleware` enabled)
+* web page routes which serve static files from "Public/" (`FileMiddleware` enabled)
 * web page routes which use Leaf templating (`LeafWebController`)
 * simple custom `Middleware` (`ExampleMiddleware`)
 * simple custom `Service` (`ExampleService`, `ExampleFortuneService`, `ExampleQuoteService`, `ExampleServiceProvider`)
