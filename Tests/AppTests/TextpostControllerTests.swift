@@ -30,6 +30,7 @@ class TextpostControllerTests: XCTestCase {
                 XCTFail("TextpostControllerTests testTextpost() failed to create database entry text01.")
                 return
         }
+        print("textpost01=\(textpost01)")
         
         // READ ALL GET /api/textposts
         let textpostsUri = "/api/textposts"
@@ -43,6 +44,7 @@ class TextpostControllerTests: XCTestCase {
                 XCTFail("TextpostControllerTests testTextpost() failed to create database entry text02.")
                 return
         }
+        print("textpost02=\(textpost02)")
         
         result = try! app.sendTestRequest(to: textpostsUri, decodeTo: [Textpost].self )
         XCTAssertEqual(result.count, 2)

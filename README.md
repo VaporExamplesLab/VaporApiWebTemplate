@@ -9,9 +9,11 @@
         <img src="http://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
     </a>
     <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-4.1-brightgreen.svg" alt="Swift 4.1">
+        <img src="http://img.shields.io/badge/swift-4.2-brightgreen.svg" alt="Swift 4.2">
     </a>
 </p>
+
+> NOTE: After an Xcode update to Swift 4.2, `NIO`, `NIOFoundationCompat`, `NIOHTTP1`, and `NIOHTTP1` warnings can be silenced by setting the `SWIFT_VERSION` to "Swift 4" in the Target build settings. 
 
 <a id=toc></a>
 [Example Routes](#ExampleRoutes) • 
