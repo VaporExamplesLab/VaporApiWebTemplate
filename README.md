@@ -33,7 +33,7 @@
 * UUID extension for RFC 4122 compliance
 * `XCTest` unit test examples
 
-## Example Routes <a id="ExampleRoutes">[▴](#toc)</a>
+## Example Routes <a id="ExampleRoutes"></a>[▴](#toc)
 
 Example routes setup in the baseline template.
 
@@ -102,7 +102,7 @@ User-Agent: …
 
 * `http://localhost:8080/leaf/bootstrap` example page with Bootstrap, Swift data objects and Leaf. 
 
-## Components  <a id="Components">[▴](#toc)</a>
+## Components  <a id="Components"></a>[▴](#toc)
 
 ### API Fluent
 
@@ -138,7 +138,7 @@ Tests/AppTests/
   LeafWebControllerTests.swift
 ```
 
-## Use <a id="Use">[▴](#toc)</a>
+## Use <a id="Use"></a>[▴](#toc)
 
 ``` bash
 vapor new PROJECT_NAME --template=marc-medley/004.77_VaporApiWebTemplate
@@ -150,7 +150,7 @@ Set the Xcode active scheme to `Run > My Mac`.
 
 ![](README_files/XcodeSchemeSetting.png)
 
-## Resources <a id="Resources">[▴](#toc)</a>
+## Resources <a id="Resources"></a>[▴](#toc)
 
 [Atom: language-leaf ⇗](https://atom.io/packages/language-leaf)  
 [Mac App Store: RESTed - Simple HTTP Requests ⇗](https://itunes.apple.com/us/app/rested-simple-http-requests/id421879749) _…free._
